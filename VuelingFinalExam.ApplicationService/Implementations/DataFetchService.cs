@@ -84,8 +84,8 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             try
             {
                 var response = await HttpClient.GetStringAsync(PricesApiUrl);
-                var priceData = JsonConvert.DeserializeObject<PriceData>(response);
-                return priceData.Price;
+                var prices = JsonConvert.DeserializeObject<List<Price>>(response);
+                return prices;
             }
             catch (Exception ex)
             {
@@ -98,8 +98,8 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             try
             {
                 var response = await HttpClient.GetStringAsync(SpyReportApiUrl);
-                var spyReportData = JsonConvert.DeserializeObject<SpyReportData>(response);
-                return spyReportData.SpyReport;
+                var spyReports = JsonConvert.DeserializeObject<List<SpyReport>>(response);
+                return spyReports;
             }
             catch (Exception ex)
             {
