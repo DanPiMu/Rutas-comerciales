@@ -23,7 +23,7 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             return await _distanceRepository.GetAllAsync();
         }
 
-        public async Task<Distance> AddClientAsync(Distance distance)
+        public async Task<Distance> AddDistanceAsync(Distance distance)
         {
             return await _distanceRepository.AddAsync(distance);
         }

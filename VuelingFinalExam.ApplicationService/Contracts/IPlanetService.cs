@@ -9,7 +9,7 @@ namespace VuelingFinalExam.ApplicationService.Contracts
 {
     public interface IPlanetService
     {
-        Task<IEnumerable<Planet>> GetAllClientsAsync();
-        Task<Planet> AddClientAsync(Planet planet);
+        Task<IEnumerable<Planet>> GetAllPlanetsAsync();
+        Task<Planet> AddPlanetAsync(Planet planet);
     }
 }

@@ -16,13 +16,13 @@ namespace VuelingFinalExam.ApplicationService.Implementations
         public PlanetService(IPlanetRepository planetRepository) { 
             _planetRepository = planetRepository;
         }
-        public async Task<IEnumerable<Planet>> GetAllClientsAsync()
+        public async Task<IEnumerable<Planet>> GetAllPlanetsAsync()
         {
             return await _planetRepository.GetAllAsync();
         }
 
 
-        public async Task<Planet> AddClientAsync(Planet planet)
+        public async Task<Planet> AddPlanetAsync(Planet planet)
         {
             return await _planetRepository.AddAsync(planet);
         }

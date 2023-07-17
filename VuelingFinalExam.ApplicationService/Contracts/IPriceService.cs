@@ -9,7 +9,7 @@ namespace VuelingFinalExam.ApplicationService.Contracts
 {
     public interface IPriceService
     {
-        Task<IEnumerable<Price>> GetAllClientsAsync();
-        Task<Price> AddClientAsync(Price price);
+        Task<IEnumerable<Price>> GetAllPricesAsync();
+        Task<Price> AddPriceAsync(Price price);
     }
 }

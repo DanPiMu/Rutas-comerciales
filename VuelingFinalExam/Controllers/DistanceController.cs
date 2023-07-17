@@ -1,6 +1,7 @@
 ﻿
 
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using VuelingFinalExam.ApplicationService.Contracts;
 using VuelingFinalExam.ApplicationService.Implementations;
 
@@ -21,8 +22,16 @@ namespace VuelingFinalExam.Controllers
         [HttpGet("routes")]
         public async Task<IActionResult> GetRoutes()
         {
-            var routes = await _distanceService.GetAllRoutesAsync();
-            return Ok(routes);
+            try
+            {
+                var routes = await _distanceService.GetAllRoutesAsync();
+                return Ok(routes);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error obteniendo las rutas");
+                return StatusCode(500, "Ocurrió un error interno del servidor. Por favor intenta nuevamente más tarde.");
+            }
         }
 
     }
