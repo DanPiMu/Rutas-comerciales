@@ -11,5 +11,6 @@ namespace VuelingFinalExam.DomainModel.RepositoryContracts
     {
         Task<IEnumerable<Price>> GetAllAsync();
         Task<Price> AddAsync(Price price);
+        Task<Price> GetBySectorAsync(string sector);
     }
 }

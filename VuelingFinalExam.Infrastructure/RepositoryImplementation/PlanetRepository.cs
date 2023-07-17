@@ -13,7 +13,8 @@ namespace VuelingFinalExam.Infrastructure.RepositoryImplementation
     public class PlanetRepository : IPlanetRepository
     {
         private readonly AppDbContext _context;
-        public PlanetRepository(AppDbContext context) { 
+        public PlanetRepository(AppDbContext context)
+        {
             _context = context;
         }
 
@@ -27,5 +28,12 @@ namespace VuelingFinalExam.Infrastructure.RepositoryImplementation
             await _context.SaveChangesAsync();
             return result.Entity;
         }
+
+        public async Task<Planet> GetByPlanetNameAsync(string planetName)
+        {
+            return await _context.Planets
+                .FirstOrDefaultAsync(p => p.PlanetName == planetName);
+        }
+
     }
 }

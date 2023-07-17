@@ -27,5 +27,12 @@ namespace VuelingFinalExam.Infrastructure.RepositoryImplementation
             await _context.SaveChangesAsync();
             return result.Entity;
         }
+
+        public async Task<SpyReport> GetByPlanetCodeAsync(string planetCode)
+        {
+            return await _context.SpyReports
+                .FirstOrDefaultAsync(s => s.PlanetCode == planetCode);
+        }
+
     }
 }

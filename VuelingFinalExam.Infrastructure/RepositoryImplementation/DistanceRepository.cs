@@ -28,6 +28,11 @@ namespace VuelingFinalExam.Infrastructure.RepositoryImplementation
             return result.Entity;
         }
 
+        public async Task<Distance> GetByOriginAndDestinationAsync(string originCode, string destinationCode)
+        {
+            return await _context.Distances
+                .FirstOrDefaultAsync(d => d.OriginPlanetCode == originCode && d.DestinationPlanetCode == destinationCode);
+        }
 
 
     }

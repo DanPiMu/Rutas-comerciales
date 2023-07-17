@@ -28,5 +28,11 @@ namespace VuelingFinalExam.Infrastructure.RepositoryImplementation
             await _context.SaveChangesAsync();
             return result.Entity;
         }
+        public async Task<Price> GetBySectorAsync(string sector)
+        {
+            return await _context.Prices
+                .FirstOrDefaultAsync(p => p.Sector == sector);
+        }
+
     }
 }
