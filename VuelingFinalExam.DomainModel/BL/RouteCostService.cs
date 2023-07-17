@@ -28,7 +28,6 @@ namespace VuelingFinalExam.DomainModel.BL
 
             if (origin == null || destination == null)
             {
-                
                 throw new Exception("Invalid origin or destination.");
             }
 

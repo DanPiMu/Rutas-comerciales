@@ -27,31 +27,10 @@ namespace VuelingFinalExam.ApplicationService.Implementations
                 Log.Error($"An error occurred while fetching Planet: {ex.Message}");
                 return Enumerable.Empty<Planet>();
             }
-            /* try
-             {
-                 var response = await HttpClient.GetStringAsync(PlanetsApiUrl);
-                 var planetData = JsonConvert.DeserializeObject<PlanetData>(response);
-                 return planetData.Planets;
-             }
-             catch (Exception ex)
-             {
-                 Log.Error($"An error occurred while fetching Planet: {ex.Message}");
-                 return Enumerable.Empty<Planet>();
-             }*/
+            
         }
         public async Task<IEnumerable<Distance>> FetchDistancesFromApiAsync()
         {
-            /*try
-            {
-                var response = await HttpClient.GetStringAsync(DistancesApiUrl);
-                var distanceData = JsonConvert.DeserializeObject<DistanceData>(response);
-                return distanceData.Distances;
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"An error occurred while fetching distance: {ex.Message}");
-                return Enumerable.Empty<Distance>();
-            }*/
             try
             {
                 var response = await HttpClient.GetStringAsync(DistancesApiUrl);
@@ -108,23 +87,5 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             }
         }
 
-    }
-    public class PlanetData
-    {
-        public List<Planet> Planets { get; set; }
-    }
-
-    public class DistanceData
-    {
-        public List<Distance> Distances { get; set; }
-    }
-    public class PriceData
-    {
-        public List<Price> Price { get; set; }
-    }
-
-    public class SpyReportData
-    {
-        public List<SpyReport> SpyReport { get; set; }
     }
 }

@@ -17,13 +17,13 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             _priceRepository = priceRepository;
         }
 
-        public async Task<IEnumerable<Price>> GetAllClientsAsync()
+        public async Task<IEnumerable<Price>> GetAllPricesAsync()
         {
             return await _priceRepository.GetAllAsync();
         }
 
 
-        public async Task<Price> AddClientAsync(Price price)
+        public async Task<Price> AddPriceAsync(Price price)
         {
             return await _priceRepository.AddAsync(price);
         }

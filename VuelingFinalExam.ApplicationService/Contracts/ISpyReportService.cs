@@ -9,7 +9,7 @@ namespace VuelingFinalExam.ApplicationService.Contracts
 {
     public interface ISpyReportService
     {
-        Task<IEnumerable<SpyReport>> GetAllClientsAsync();
-        Task<SpyReport> AddClientAsync(SpyReport spyReport);
+        Task<IEnumerable<SpyReport>> GetAllSpyReportsAsync();
+        Task<SpyReport> AddSpyReportAsync(SpyReport spyReport);
     }
 }
