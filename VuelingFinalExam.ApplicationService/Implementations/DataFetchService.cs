@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Serilog;
 using VuelingFinalExam.ApplicationService.Contracts;
 using VuelingFinalExam.DomainModel.Entites;
@@ -7,18 +8,20 @@ namespace VuelingFinalExam.ApplicationService.Implementations
 {
     public class DataFetchService : IDataFetchService
     {
-        private static readonly HttpClient HttpClient = new HttpClient();
-        private const string PlanetsApiUrl = "https://otd-exams-data.vueling.app/sindicate/planets.json";
-        private const string DistancesApiUrl = "https://otd-exams-data.vueling.app/sindicate/distances.json";
-        private const string PricesApiUrl = "https://otd-exams-data.vueling.app/empire/prices.json";
-        private const string SpyReportApiUrl = "https://otd-exams-data.vueling.app/empire/spyreport.json";
+        private readonly IConfiguration _configuration;
 
+        public DataFetchService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+        private static readonly HttpClient HttpClient = new HttpClient();
+       
 
         public async Task<IEnumerable<Planet>> FetchPlanetsFromApiAsync()
         {
             try
             {
-                var response = await HttpClient.GetStringAsync(PlanetsApiUrl);
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:PlanetsApiUrl"]);
                 var planets = JsonConvert.DeserializeObject<List<Planet>>(response);
                 return planets;
             }
@@ -33,7 +36,7 @@ namespace VuelingFinalExam.ApplicationService.Implementations
         {
             try
             {
-                var response = await HttpClient.GetStringAsync(DistancesApiUrl);
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:DistancesApiUrl"]);
                 var distanceData = JsonConvert.DeserializeObject<Dictionary<string, List<DistanceItem>>>(response);
 
                 var distances = new List<Distance>();
@@ -62,7 +65,7 @@ namespace VuelingFinalExam.ApplicationService.Implementations
         {
             try
             {
-                var response = await HttpClient.GetStringAsync(PricesApiUrl);
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:PricesApiUrl"]);
                 var prices = JsonConvert.DeserializeObject<List<Price>>(response);
                 return prices;
             }
@@ -76,7 +79,7 @@ namespace VuelingFinalExam.ApplicationService.Implementations
         {
             try
             {
-                var response = await HttpClient.GetStringAsync(SpyReportApiUrl);
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:SpyReportApiUrl"]);
                 var spyReports = JsonConvert.DeserializeObject<List<SpyReport>>(response);
                 return spyReports;
             }
