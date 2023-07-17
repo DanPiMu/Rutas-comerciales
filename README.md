@@ -36,6 +36,10 @@ La aplicación sigue una arquitectura de N capas, lo que permite una separación
 
 Al iniciar la aplicación, se comprueba si la base de datos ya existe. Si no se encuentra la base de datos, se crea automáticamente junto con la inserción de todos los datos obtenidos de las APIs externas. Esto asegura que la base de datos esté correctamente configurada y poblada antes de que la aplicación comience a funcionar.
 
+## Flujo de trabajo con Git
+
+Durante el desarrollo de esta aplicación, se utilizó el flujo de trabajo Git Flow para gestionar las ramas y las versiones del código. Se siguieron los principios de Git Flow, como el uso de las ramas `develop` y `feature` para implementar nuevas funcionalidades, y la rama `master` para las versiones estables del código.
+
 
 ## Áreas de mejora
 
