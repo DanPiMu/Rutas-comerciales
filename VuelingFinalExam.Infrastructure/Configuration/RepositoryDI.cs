@@ -29,7 +29,6 @@ namespace VuelingFinalExam.Infrastructure.Configuration
         public static void CreateDB(this IServiceProvider services)
         {
             var db = services.GetRequiredService<AppDbContext>();
-            db.Database.EnsureDeleted(); //revision
             db.Database.EnsureCreated();
         }
     }
