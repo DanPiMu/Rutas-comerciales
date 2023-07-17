@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using VuelingFinalExam.ApplicationService.Contracts;
 using VuelingFinalExam.ApplicationService.Implementations;
