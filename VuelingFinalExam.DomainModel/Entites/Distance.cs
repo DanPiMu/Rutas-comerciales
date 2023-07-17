@@ -9,8 +9,8 @@ namespace VuelingFinalExam.DomainModel.Entites
     public class Distance
     {
         public int Id { get;}
-        public string OriginPlanetCode { get; set; } //Corresponde a TAT, NAL, etc. en tu JSON
-        public string DestinationPlanetCode { get; set; } //Corresponde a ALD, YAV, etc. en tu JSON
+        public string OriginPlanetCode { get; set; } 
+        public string DestinationPlanetCode { get; set; } 
         public double LunarYears { get; set; }
     }
 }
