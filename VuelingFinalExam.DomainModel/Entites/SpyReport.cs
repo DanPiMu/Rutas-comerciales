@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,13 @@ namespace VuelingFinalExam.DomainModel.Entites
 {
     public class SpyReport
     {
-        public int Id { get;}
-        public string PlanetCode { get; set; } //Corresponde a TAT, ORD, etc. en tu JSON
+        public int Id { get; set; }
+
+        [JsonProperty("code")]
+        public string PlanetCode { get; set; }
+
+        [JsonProperty("rebelInfluence")]
         public int RebelInfluence { get; set; }
     }
+
 }

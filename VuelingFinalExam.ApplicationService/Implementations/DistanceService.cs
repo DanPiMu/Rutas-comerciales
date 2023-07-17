@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VuelingFinalExam.ApplicationService.Contracts;
+﻿using VuelingFinalExam.ApplicationService.Contracts;
 using VuelingFinalExam.DomainModel.Entites;
 using VuelingFinalExam.DomainModel.RepositoryContracts;
 
@@ -18,12 +13,12 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             _distanceRepository = distanceRepository;
         }
 
-        public async Task<IEnumerable<Distance>> GetAllClientsAsync()
+        public async Task<IEnumerable<Distance>> GetAllRoutesAsync()
         {
             return await _distanceRepository.GetAllAsync();
         }
 
-        public async Task<Distance> AddClientAsync(Distance distance)
+        public async Task<Distance> AddDistanceAsync(Distance distance)
         {
             return await _distanceRepository.AddAsync(distance);
         }

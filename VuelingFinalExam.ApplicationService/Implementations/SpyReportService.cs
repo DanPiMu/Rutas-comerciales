@@ -19,13 +19,13 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             _spyReportRepository = spyReportRepository;
         }
 
-        public async Task<IEnumerable<SpyReport>> GetAllClientsAsync()
+        public async Task<IEnumerable<SpyReport>> GetAllSpyReportsAsync()
         {
             return await _spyReportRepository.GetAllAsync();
         }
 
 
-        public async Task<SpyReport> AddClientAsync(SpyReport spyReport)
+        public async Task<SpyReport> AddSpyReportAsync(SpyReport spyReport)
         {
             return await _spyReportRepository.AddAsync(spyReport);
         }

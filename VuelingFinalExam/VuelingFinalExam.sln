@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFinalExam.DomainMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFinalExam.Infrastructure", "..\VuelingFinalExam.Infrastructure\VuelingFinalExam.Infrastructure.csproj", "{0231D6D0-DF91-4080-B5A4-BAAA19412558}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFinalExam.ApplicationService.UnitTest", "..\VuelingFinalExam.ApplicationService.UnitTest\VuelingFinalExam.ApplicationService.UnitTest.csproj", "{F20FC20B-E306-4E79-8102-590008DF58F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{0231D6D0-DF91-4080-B5A4-BAAA19412558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0231D6D0-DF91-4080-B5A4-BAAA19412558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0231D6D0-DF91-4080-B5A4-BAAA19412558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20FC20B-E306-4E79-8102-590008DF58F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20FC20B-E306-4E79-8102-590008DF58F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20FC20B-E306-4E79-8102-590008DF58F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20FC20B-E306-4E79-8102-590008DF58F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{B52163E0-6FB7-4991-B16B-DE1363922C35} = {7717A2CC-D768-43A3-9EC6-4A45B0EE6762}
 		{F4216EDD-6A05-48AB-923C-D4EB834CFF65} = {3F604C52-7297-41A6-A7A0-AC482F4E44ED}
 		{0231D6D0-DF91-4080-B5A4-BAAA19412558} = {F23CD803-1E61-43E4-813F-E9DB51093FD8}
+		{F20FC20B-E306-4E79-8102-590008DF58F2} = {7717A2CC-D768-43A3-9EC6-4A45B0EE6762}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {757430B0-06D2-4739-86C9-FA7E89E602EA}

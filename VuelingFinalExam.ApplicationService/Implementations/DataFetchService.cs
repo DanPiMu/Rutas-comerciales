@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Serilog;
 using VuelingFinalExam.ApplicationService.Contracts;
 using VuelingFinalExam.DomainModel.Entites;
@@ -7,18 +8,20 @@ namespace VuelingFinalExam.ApplicationService.Implementations
 {
     public class DataFetchService : IDataFetchService
     {
-        private static readonly HttpClient HttpClient = new HttpClient();
-        private const string PlanetsApiUrl = "https://otd-exams-data.vueling.app/sindicate/planets.json";
-        private const string DistancesApiUrl = "https://otd-exams-data.vueling.app/sindicate/distances.json";
-        private const string PricesApiUrl = "https://otd-exams-data.vueling.app/empire/prices.json";
-        private const string SpyReportApiUrl = "https://otd-exams-data.vueling.app/empire/spyreport.json";
+        private readonly IConfiguration _configuration;
 
+        public DataFetchService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+        private static readonly HttpClient HttpClient = new HttpClient();
+       
 
         public async Task<IEnumerable<Planet>> FetchPlanetsFromApiAsync()
         {
             try
             {
-                var response = await HttpClient.GetStringAsync(PlanetsApiUrl);
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:PlanetsApiUrl"]);
                 var planets = JsonConvert.DeserializeObject<List<Planet>>(response);
                 return planets;
             }
@@ -27,34 +30,13 @@ namespace VuelingFinalExam.ApplicationService.Implementations
                 Log.Error($"An error occurred while fetching Planet: {ex.Message}");
                 return Enumerable.Empty<Planet>();
             }
-            /* try
-             {
-                 var response = await HttpClient.GetStringAsync(PlanetsApiUrl);
-                 var planetData = JsonConvert.DeserializeObject<PlanetData>(response);
-                 return planetData.Planets;
-             }
-             catch (Exception ex)
-             {
-                 Log.Error($"An error occurred while fetching Planet: {ex.Message}");
-                 return Enumerable.Empty<Planet>();
-             }*/
+            
         }
         public async Task<IEnumerable<Distance>> FetchDistancesFromApiAsync()
         {
-            /*try
-            {
-                var response = await HttpClient.GetStringAsync(DistancesApiUrl);
-                var distanceData = JsonConvert.DeserializeObject<DistanceData>(response);
-                return distanceData.Distances;
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"An error occurred while fetching distance: {ex.Message}");
-                return Enumerable.Empty<Distance>();
-            }*/
             try
             {
-                var response = await HttpClient.GetStringAsync(DistancesApiUrl);
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:DistancesApiUrl"]);
                 var distanceData = JsonConvert.DeserializeObject<Dictionary<string, List<DistanceItem>>>(response);
 
                 var distances = new List<Distance>();
@@ -83,9 +65,9 @@ namespace VuelingFinalExam.ApplicationService.Implementations
         {
             try
             {
-                var response = await HttpClient.GetStringAsync(PricesApiUrl);
-                var priceData = JsonConvert.DeserializeObject<PriceData>(response);
-                return priceData.Price;
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:PricesApiUrl"]);
+                var prices = JsonConvert.DeserializeObject<List<Price>>(response);
+                return prices;
             }
             catch (Exception ex)
             {
@@ -97,9 +79,9 @@ namespace VuelingFinalExam.ApplicationService.Implementations
         {
             try
             {
-                var response = await HttpClient.GetStringAsync(SpyReportApiUrl);
-                var spyReportData = JsonConvert.DeserializeObject<SpyReportData>(response);
-                return spyReportData.SpyReport;
+                var response = await HttpClient.GetStringAsync(_configuration["ApiUrls:SpyReportApiUrl"]);
+                var spyReports = JsonConvert.DeserializeObject<List<SpyReport>>(response);
+                return spyReports;
             }
             catch (Exception ex)
             {
@@ -108,23 +90,5 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             }
         }
 
-    }
-    public class PlanetData
-    {
-        public List<Planet> Planets { get; set; }
-    }
-
-    public class DistanceData
-    {
-        public List<Distance> Distances { get; set; }
-    }
-    public class PriceData
-    {
-        public List<Price> Price { get; set; }
-    }
-
-    public class SpyReportData
-    {
-        public List<SpyReport> SpyReport { get; set; }
     }
 }

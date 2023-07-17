@@ -27,5 +27,13 @@ namespace VuelingFinalExam.Infrastructure.RepositoryImplementation
             await _context.SaveChangesAsync();
             return result.Entity;
         }
+
+        public async Task<Distance> GetByOriginAndDestinationAsync(string originCode, string destinationCode)
+        {
+            return await _context.Distances
+                .FirstOrDefaultAsync(d => d.OriginPlanetCode == originCode && d.DestinationPlanetCode == destinationCode);
+        }
+
+
     }
 }
