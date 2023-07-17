@@ -6,6 +6,10 @@ using VuelingFinalExam.ApplicationService.Implementations;
 
 namespace VuelingFinalExam.Controllers
 {
+    [ApiController]
+    [ApiVersion("1.0")]
+    [Route("v{version:apiVersion}/Imperio/[controller]")]
+
     public class DistanceController : ControllerBase
     {
 
