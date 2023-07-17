@@ -18,7 +18,7 @@ namespace VuelingFinalExam.ApplicationService.Implementations
             _distanceRepository = distanceRepository;
         }
 
-        public async Task<IEnumerable<Distance>> GetAllClientsAsync()
+        public async Task<IEnumerable<Distance>> GetAllRoutesAsync()
         {
             return await _distanceRepository.GetAllAsync();
         }
