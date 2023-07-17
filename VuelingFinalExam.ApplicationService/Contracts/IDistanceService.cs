@@ -9,7 +9,7 @@ namespace VuelingFinalExam.ApplicationService.Contracts
 {
     public interface IDistanceService
     {
-        Task<IEnumerable<Distance>> GetAllClientsAsync();
+        Task<IEnumerable<Distance>> GetAllRoutesAsync();
         Task<Distance> AddClientAsync(Distance distance);
     }
 }
