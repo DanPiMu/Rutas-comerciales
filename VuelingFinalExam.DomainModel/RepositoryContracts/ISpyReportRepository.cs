@@ -11,5 +11,6 @@ namespace VuelingFinalExam.DomainModel.RepositoryContracts
     {
         Task<IEnumerable<SpyReport>> GetAllAsync();
         Task<SpyReport> AddAsync(SpyReport spyReport);
+        Task<SpyReport> GetByPlanetCodeAsync(string planetCode);
     }
 }

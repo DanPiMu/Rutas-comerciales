@@ -11,5 +11,7 @@ namespace VuelingFinalExam.DomainModel.RepositoryContracts
     {
         Task<IEnumerable<Distance>> GetAllAsync();
         Task<Distance> AddAsync(Distance distance);
+
+        Task<Distance> GetByOriginAndDestinationAsync(string originCode, string destinationCode);
     }
 }
