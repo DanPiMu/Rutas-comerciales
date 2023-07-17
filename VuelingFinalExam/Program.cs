@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using VuelingFinalExam.ApplicationService.Configuration;
 
@@ -9,6 +10,13 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("logs/log.txt",
     rollingInterval: RollingInterval.Day)
 .CreateLogger();
+
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+});
 
 // Add services to the container.
 
